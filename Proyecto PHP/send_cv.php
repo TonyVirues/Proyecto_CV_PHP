@@ -3,11 +3,10 @@
 //Importamos el archivo php que tiene la conexión.
 include("conexion.php");
 
-//comprobaciond de todo esta correcto
-echo "<pre>";
-print_r($_POST);
-print_r($_FILES);
-echo "</pre>";
+// echo "<pre>"; //borrar en el futuro
+// print_r($_POST);
+// print_r($_FILES);
+// echo "</pre>";
 
 //Proceso que recoge los datos de los inputs.
 $nombre = trim($_POST['nombre']);
@@ -16,12 +15,12 @@ $email = trim($_POST['email']);
 $telefono = trim($_POST['telefono']);
 $domicilio = trim($_POST['domicilio']);
 $experiencia = trim($_POST['experiencia']);
-$academica = trim($_POST['academica']);
+$formacion = trim($_POST['formacion']);
 $habilidades = trim($_POST['habilidades']);
 $idiomas = trim($_POST['idiomas']);
 
 //Variable para guardar las versiones de un CV.
-$grupo_cv = time();
+$version_cv = time();
 
 //Actualizar foto?-
 $nombreFoto = null;
@@ -32,8 +31,8 @@ if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 0){
     $tmp = $_FILES["foto"]["tmp_name"];
 
     //Para evitar sobrescribir el nombre.
-    $nombreFinal = time() . "_" . $nombreOriginal;
-    $rutaDestino = "uploads/" . $nombreFinal;
+    $nombreFoto = time() . "_" . $nombreOriginal;
+    $rutaDestino = "uploads/" . $nombreFoto;
 
     if (move_uploaded_file($tmp, $rutaDestino)) {
         echo "<p>✅ Foto guardada correctamente en: $rutaDestino</p>";
@@ -46,30 +45,40 @@ if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 0){
 };
 
 //Insertar los datos recogidos en la tabla de base de datos.
-$insertTable = "INSERT INTO cv_versiones 
-(grupo_cv, nombre, apellidos, email, telefono, domicilio, experiencia, formacion, habilidades, idiomas, foto)
+$insertTable = "INSERT INTO datos_cv 
+(version_cv, nombre, apellidos, email, telefono, domicilio, experiencia, formacion, habilidades, idiomas, foto)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $sentencia = $connect->prepare($insertTable);
+
+if (!$sentencia) {
+    die("JODER en prepare(): " . $connect->error);
+}
+
 $sentencia->bind_param(
     "issssssssss",
-    $grupo_cv,
+    $version_cv,
     $nombre,
     $apellidos,
     $email,
     $telefono,
     $domicilio,
     $experiencia,
-    $academica,
+    $formacion,
     $habilidades,
     $idiomas,
     $nombreFoto
 );
-
-$sentencia->execute();
+if ($sentencia->execute()) {
+    echo "OK";
+} else {
+    echo "CAGOENDIO en execute(): " . $sentencia->error;
+}
 
 //Variable que guarda el id.
 $id_cv = $sentencia->insert_id;
+header("Location: ver_cv.php?id=" . $id_cv);
+exit;
 
 //Se cierra la sentencia y la conexión.
 $sentencia->close();

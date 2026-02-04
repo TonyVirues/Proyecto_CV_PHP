@@ -11,6 +11,6 @@ $connect = new mysqli($serverName,$userName,$password,$dbName);
 
 //Verificar conexión.
 if($connect->connect_error){
-    die("Error de conexión: " .$connect->connect_error);
+    die("Esto exploto: " .$connect->connect_error);
 }
 ?>
