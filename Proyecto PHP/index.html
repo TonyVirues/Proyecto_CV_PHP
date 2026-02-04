@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Links.-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Css/custom.css">
+    <title>Generador de CV</title>
+</head>
+
+<body class="bg-dark">
+    <!--Cabecera-->
+    <header>
+        <div class="navbar navbar-dark bg-primary mb-4">
+            <div class="container"> <span class="navbar-brand mb-0 h1"><i class="bi bi-file-earmark-person"></i> CV Generator Pro</span> 
+                <a href="listado.php" class="btn btn-outline-light btn-sm">Ver Mis CVs</a>
+            </div>
+
+            <div class="me-4">
+                <button type="button" class="btn btn-outline-light ">Inicia Sesión</button>
+                <button type="button" class="btn bg-light ">Registrate</button>
+            </div>
+        </div>
+        <!--Agregar foto de perfil y botones de dark/light-->
+    </header>
+    <!--Contenido principal -->
+    <main class="mb-5">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--Menú de navegación.-->
+                <div class="col-3">
+                    <div class="px-3 py-4 h-100">
+
+                        <nav class=" rounded-4 shadow-sm p-3 h-100" style="background-color: #e3f2fd;">
+
+                            <ul class="nav nav-pills flex-column gap-1">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Datos personales</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Experiencia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Formación</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Habilidades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Idiomas</a>
+                                </li>
+                            </ul>
+
+                        </nav>
+
+                    </div>
+                </div>
+
+                <!--Contenido principal,inputs.-->
+                <section class="col-6">
+                    <div class="py-4">
+
+                        <!--Barra de progeso.-->
+                        <div class=" rounded-4 shadow-sm p-4 mb-4" style="background-color: #E3E3E3;">
+                            <div class="d-flex justify-content-between mb-2">
+                                <strong>Paso 1 de 5</strong>
+                                <span class="text-primary fw-semibold">20% completado</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 20%"></div>
+                            </div>
+                        </div>
+
+                        <!--Imagen preview de perfil.-->
+                        <div class="rounded-4 shadow-sm p-4 mb-4 d-flex align-items-center gap-3"
+                            style="background-color: #E3E3E3;">
+                            <img src="image/perfil.png" class="rounded-circle border" width="50" height="50"
+                                alt="Foto perfil">
+                            <div>
+                                <strong>Foto de perfil</strong>
+                                <div class="text-muted small">JPG o PNG · máx 2MB</div>
+                            </div>
+                        </div>
+
+                        <!--Formulario.-->
+                        <form action="procesar_cv.php" method="POST" enctype="multipart/form-data" 
+                            class="p-4 shadow-sm rounded-4 needs-validation" 
+                            style="background-color: #E3E3E3;" novavalidation>
+
+                            <!--Datos personales.-->
+                            <section class="mb-5">
+                                <!--Apartado datos personales.-->
+                                <h4 class="border-bottom pb-2 mb-3 text-primary">Datos Personales</h4>
+
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="validationServer01" class="form-label">Nombre</label>
+                                        <input type="text" name="nombre" class="form-control" placeholder="Antonio José" required>
+                                    </div>
+                                    <div class="col-md-6"> 
+                                        <label for="validationServer01" class="form-label">Apellidos</label> 
+                                        <input type="text" name="apellidos" class="form-control"  placeholder="Marún Virués" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="validationServer01" class="form-label">Correo Electrónico</label>
+                                        <input type="email" name="email" class="form-control" placeholder="designer@gmail.com" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label">Teléfono</label>
+                                        <input type="tel" name="telefono" class="form-control" placeholder="+36000001002" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Dirección Domicilio</label>
+                                        <input type="text" name="domicilio" class="form-control" placeholder="Calle Lito 1" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="validationServer01"  class="form-label">Foto de Perfil</label>
+                                        <input type="file" name="foto" class="form-control" required>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="mb-5">
+
+                                <!--Apartado experiencia laboral.-->
+                                <h4 class="border-bottom pb-2 mb-3 text-primary">Experiencia Laboral</h4>
+
+                                <div class="row g-3">
+                                    <label class="form-label">Resumen de Experiencia</label>
+                                    <textarea name="experiencia" class="form-control" rows="4"
+                                        placeholder="Describe tus puestos anteriores..."></textarea>
+                                </div>
+                            </section>
+
+                            <section class="mb-5">
+
+                                <!--Apartado Formación academica.-->
+                                <h4 class="border-bottom pb-2 mb-3 text-primary">Formación Académica</h4>
+
+                                <div class="row g-3">
+                                    <label class="form-label">Resumen Académico</label>
+                                    <textarea name="academica" class="form-control" rows="4"
+                                        placeholder="Describe tus estudios anteriores..."></textarea>
+                                </div>
+                            </section>
+
+                            <section class="mb-5">
+
+                                <!--Apartado habilidades e idiomas.-->
+                                <div class="row g-3">
+
+                                    <div class="col-md-6">
+                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Habilidades</h4>
+                                        <textarea name="habilidades" class="form-control" rows="3"
+                                            placeholder="PHP, MySQL, Trabajo en equipo, liderazgo, Git"></textarea>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Idiomas</h4>
+                                        <textarea name="idiomas" class="form-control" rows="3"
+                                            placeholder="Inglés (B2), Alemán (A1)..."></textarea>
+                                    </div>
+                                </div>
+
+                            </section>
+
+                            <!--Botones-->
+                            <div class="d-flex justify-content-end gap-2">
+                                <button type="reset" class="btn btn-outline-secondary">
+                                    Limpiar
+                                </button>
+                                <button type="submit" class="btn btn-primary px-4">Guardar y enviar CV</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </section>
+
+                <!--Relleno columna derecha.-->
+                <aside class="col-3">
+                    <div class="px-3 py-4 h-100">
+                        <div class=" rounded-4 shadow-sm p-4 h-100 text-muted" style="background-color: #e3f2fd;">
+                            <strong>Vista previa del CV</strong>
+                            <p class="small mt-2">
+                                Aquí podrás mostrar cómo va quedando el currículum.
+                            </p>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
