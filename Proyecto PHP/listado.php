@@ -35,22 +35,26 @@ $resultado = $connect->query($obtenerTodosCv);
                 </tr>
             </thead>
             <tbody>
+
                 <?php while ($cv = $resultado->fetch_assoc()): ?>
                     <tr>
                         <td><?= htmlspecialchars($cv['nombre']) ?> <?= htmlspecialchars($cv['apellidos']) ?></td>
                         <td><?= htmlspecialchars($cv['email']) ?></td>
                         <td><?= $cv['fecha_creacion'] ?></td>
                         <td>
-                            <a href="ver_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-primary">
-                                Ver
-                            </a>
+                            <a href="ver_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-primary">Ver</a>
+                            <a href="editar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="eliminar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-danger"onclick="return confirm('¿Seguro que quieres eliminar esta versión del CV?');">Eliminar</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>
+
             </tbody>
         </table>
+
     <?php else: ?>
         <p>No hay CVs guardados.</p>
+
     <?php endif; ?>
 
 </div>

@@ -20,13 +20,19 @@ $habilidades = trim($_POST['habilidades']);
 $idiomas = trim($_POST['idiomas']);
 
 //Variable para guardar las versiones de un CV.
-$version_cv = time();
+$version_cv = $_POST["version_cv"] ?? time();
 
-//Actualizar foto?-
-$nombreFoto = null;
+
+/**
+ * Actualizar foto/ se ha actualizado este codigo para que se mantenga la foto original
+ *  si no se sube una nueva
+ */
+$nombreFoto = $_POST['foto_actual'] ?? null;
 
 //Guardar foto en la carpeta designada.
 if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 0){
+
+
     $nombreOriginal = $_FILES["foto"]["name"];
     $tmp = $_FILES["foto"]["tmp_name"];
 
@@ -34,14 +40,15 @@ if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 0){
     $nombreFoto = time() . "_" . $nombreOriginal;
     $rutaDestino = "uploads/" . $nombreFoto;
 
+
+
     if (move_uploaded_file($tmp, $rutaDestino)) {
         echo "<p>✅ Foto guardada correctamente en: $rutaDestino</p>";
     } else {
         echo "<p>❌ Error al mover la foto</p>";
     }
-} else {
-    echo "<p> No se encontro la foto <p>";
-    
+    } else {
+        echo "<p> No se encontro la foto <p>";   
 };
 
 //Insertar los datos recogidos en la tabla de base de datos.
@@ -78,9 +85,13 @@ if ($sentencia->execute()) {
 //Variable que guarda el id.
 $id_cv = $sentencia->insert_id;
 
+if ($id_cv <= 0) {
+    die("Error: no se pudo obtener el ID del CV creado.");
+}
+
 //redireccion para visualizar el cv
 header("Location: visualizar_cv.php?id=" . $id_cv);
-exit; //<--Revisar
+exit;
 
 
 //Se cierra la sentencia y la conexión.
