@@ -77,8 +77,11 @@ if ($sentencia->execute()) {
 
 //Variable que guarda el id.
 $id_cv = $sentencia->insert_id;
-header("Location: ver_cv.php?id=" . $id_cv);
-exit;
+
+//redireccion para visualizar el cv
+header("Location: visualizar_cv.php?id=" . $id_cv);
+exit; //<--Revisar
+
 
 //Se cierra la sentencia y la conexión.
 $sentencia->close();
