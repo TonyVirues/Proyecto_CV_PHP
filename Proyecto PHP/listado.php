@@ -19,7 +19,7 @@ $resultado = $connect->query($obtenerTodosCv);
     <title>Mis CVs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body class="bg-dark">
 
 <div class="container-fluid mt-5">
     <h2 class="mb-4 ms-5">Mis Currículums</h2>

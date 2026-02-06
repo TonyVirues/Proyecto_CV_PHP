@@ -1,10 +1,11 @@
 //Gate
-let barraProgreso = document.getElementById("barraProgreso");
+let barraProgreso = document.getElementById("progressBar");
+let numeroPorcentaje = document.getElementById("numPorcentaje");
 let form = document.querySelector("form");
 
 //Raid que contiene todos los inputs.
 let raidInputs = form.querySelectorAll(
-    "input[type='text'], input[type='email'], textarea, input[type='file']");
+    "input[type='text'], input[type='email'], input[type='tel'], textarea, input[type='file']");
 
 //Raid pasadas descumpuesta en números.
 let totalInputs = raidInputs.length;
@@ -32,9 +33,10 @@ function actualizarProgeso(){
      * calculado entre lo completado y los fields restantes.
      */
     let porcentaje = Math.round((completado / totalInputs)*100);
+    //Se imprime en el html la barra y el numero de porcentaje;
+    barraProgreso.style.width = porcentaje + "%";
+    numeroPorcentaje.innerHTML = porcentaje + "%";
 
-    barraProgreso.style.width = percentage + "%";
-    barraProgreso.textContent = percentage + "%";
 
     //Cambiar el color según el progreso.
     barraProgreso.classList.remove("bg-danger", "bg-warning", "bg-success");
@@ -52,7 +54,7 @@ function actualizarProgeso(){
  */
 document.addEventListener("DOMContentLoaded",()=>{
 
-    fields.forEach(field => {
+    raidInputs.forEach(field => {
         field.addEventListener("input", actualizarProgeso);
         field.addEventListener("change", actualizarProgeso);
     });
