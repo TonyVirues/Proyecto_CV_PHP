@@ -70,7 +70,7 @@
                                 <strong>Paso 1 de 5</strong>
                                 <span class="text-primary fw-semibold">20% completado</span>
                             </div>
-                            <div class="progress">
+                            <div id="progressBar" class="progress">
                                 <div class="progress-bar" style="width: 20%"></div>
                             </div>
                         </div>
@@ -98,30 +98,30 @@
 
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label for="validationServer01" class="form-label">Nombre</label>
+                                        <label for="validationServer01" class="form-label">Nombre <span class="text-danger">*</span></label>
                                         <input type="text" name="nombre" class="form-control" placeholder="Antonio José" required>
                                     </div>
                                     <div class="col-md-6"> 
-                                        <label for="validationServer01" class="form-label">Apellidos</label> 
+                                        <label for="validationServer01" class="form-label">Apellidos <span class="text-danger">*</span></label> 
                                         <input type="text" name="apellidos" class="form-control"  placeholder="Marún Virués" required>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="validationServer01" class="form-label">Correo Electrónico</label>
+                                        <label for="validationServer01" class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
                                         <input type="email" name="email" class="form-control" placeholder="designer@gmail.com" required>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label class="form-label">Teléfono</label>
+                                        <label class="form-label">Teléfono <span class="text-danger">*</span></label>
                                         <input type="tel" name="telefono" class="form-control" placeholder="+36000001002" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label">Dirección Domicilio</label>
+                                        <label class="form-label">Dirección Domicilio <span class="text-danger">*</span></label>
                                         <input type="text" name="domicilio" class="form-control" placeholder="Calle Lito 1" required>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label for="validationServer01"  class="form-label">Foto de Perfil</label>
+                                        <label for="validationServer01"  class="form-label">Foto de Perfil <span class="text-danger">*</span></label>
                                         <input type="file" name="foto" class="form-control" required>
                                     </div>
                                 </div>
@@ -130,10 +130,10 @@
                             <section class="mb-5">
 
                                 <!--Apartado experiencia laboral.-->
-                                <h4 class="border-bottom pb-2 mb-3 text-primary">Experiencia Laboral</h4>
+                                <h4 class="border-bottom pb-2 mb-3 text-primary">Experiencia Laboral </h4>
 
                                 <div class="row g-3">
-                                    <label class="form-label">Resumen de Experiencia</label>
+                                    <label class="form-label">Resumen de Experiencia <span class="text-danger">*</span></label>
                                     <textarea name="experiencia" class="form-control" rows="4"
                                         placeholder="Describe tus puestos anteriores..."></textarea>
                                 </div>
@@ -145,7 +145,7 @@
                                 <h4 class="border-bottom pb-2 mb-3 text-primary">Formación Académica</h4>
 
                                 <div class="row g-3">
-                                    <label class="form-label">Resumen Académico</label>
+                                    <label class="form-label">Resumen Académico <span class="text-danger">*</span></label>
                                     <textarea name="formacion" class="form-control" rows="4"
                                         placeholder="Describe tus estudios anteriores..."></textarea>
                                 </div>
@@ -157,13 +157,13 @@
                                 <div class="row g-3">
 
                                     <div class="col-md-6">
-                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Habilidades</h4>
+                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Habilidades <span class="text-danger">*</span></h4>
                                         <textarea name="habilidades" class="form-control" rows="3"
                                             placeholder="PHP, MySQL, Trabajo en equipo, liderazgo, Git"></textarea>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Idiomas</h4>
+                                        <h4 class="border-bottom pb-2 mb-3 text-primary">Idiomas <span class="text-danger">*</span></h4>
                                         <textarea name="idiomas" class="form-control" rows="3"
                                             placeholder="Inglés (B2), Alemán (A1)..."></textarea>
                                     </div>
