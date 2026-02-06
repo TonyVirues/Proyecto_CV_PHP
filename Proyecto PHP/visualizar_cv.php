@@ -85,9 +85,14 @@ $cv = $resultado->fetch_assoc();
 
     <!-- BOTONES -->
     <div class="no-print text-end mb-4">
-        <a href="javascript:window.print()" class="btn btn-primary">
-            Imprimir / Guardar PDF
-        </a>
+    <button onclick="window.print()" class="btn btn-primary">
+        🖨️ Imprimir CV
+    </button>
+
+    <!-- Botón Guardar PDF --> <!--CAMBIAR ESTO POR DIOS.-->
+    <button onclick="guardarPDF()" class="btn btn-outline-primary disable">
+        📄 Guardar como PDF
+    </button>
         <a href="listado.php" class="btn btn-secondary">
             Volver
         </a>
@@ -128,7 +133,17 @@ $cv = $resultado->fetch_assoc();
         <p><?= nl2br(htmlspecialchars($cv['idiomas'])) ?></p>
     </section>
 
-</div>
-
+</div><!--Cambiar esto por dios-->
+<script>
+function guardarPDF() {
+    alert(
+        "Para guardar el currículum en PDF:\n\n" +
+        "1. Pulsa Aceptar\n" +
+        "2. En el diálogo de impresión elige 'Guardar como PDF'\n" +
+        "3. Confirma la descarga"
+    );
+    window.print();
+}
+</script>
 </body>
 </html>
