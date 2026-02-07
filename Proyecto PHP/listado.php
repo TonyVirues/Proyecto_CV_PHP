@@ -21,81 +21,82 @@ $resultado = $connect->query($obtenerTodosCv);
 </head>
 <body class="bg-dark">
 
-<div class="container-fluid mt-5">
-    <h2 class="mb-4 ms-5">Mis Currículums</h2>
+    <div class="container-fluid mt-5">
+        <h2 class="mb-4 ms-5">Mis Currículums</h2>
 
-    <?php if ($resultado->num_rows > 0): ?>
-            <div class="row">
+        <?php if ($resultado->num_rows > 0): ?>
+                <div class="row">
 
-                <!--Menú de navegación.-->
-                <div class="col-3">
-                    <div class="px-3 py-4 h-100">
+                    <!--Menú de navegación.-->
+                    <div class="col-3">
+                        <div class="px-3 py-4 h-100">
 
-                        <nav class=" rounded-4 shadow-sm p-3 h-100" style="background-color: #e3f2fd;">
+                            <nav class=" rounded-4 shadow-sm p-3 h-100" style="background-color: #e3f2fd;">
 
-                            <ul class="nav nav-pills flex-column gap-1">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="listado.php">Mis curriculums</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Formación</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Habilidades</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Idiomas</a>
-                                </li>
-                            </ul>
+                                <ul class="nav nav-pills flex-column gap-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="listado.php">Mis curriculums</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Formación</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Habilidades</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Idiomas</a>
+                                    </li>
+                                </ul>
 
-                        </nav>
+                            </nav>
 
+                        </div>
                     </div>
-                </div>
 
-                <!--Tabla de curriculums.-->
-                <div class="col-9">
-                    <div class="py-4 me-5">
-                        <table class="table table-striped table-bordered">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Email</th>
-                                    <th>Fecha creación</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                
-                                <?php while ($cv = $resultado->fetch_assoc()): ?>
+                    <!--Tabla de curriculums.-->
+                    <div class="col-9">
+                        <div class="py-4 me-5">
+                            <table class="table table-striped table-bordered">
+                                <thead class="table-primary">
                                     <tr>
-                                        <td><?= htmlspecialchars($cv['nombre']) ?> <?= htmlspecialchars($cv['apellidos']) ?></td>
-                                        <td><?= htmlspecialchars($cv['email']) ?></td>
-                                        <td><?= $cv['fecha_creacion'] ?></td>
-                                        <td>
-                                            <a href="visualizar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-primary">Ver</a>
-                                            <a href="editar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                                            <a href="eliminar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-danger"onclick="return confirm('¿Seguro que quieres eliminar esta versión del CV?');">Eliminar</a>
-                                        </td>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Fecha creación</th>
+                                        <th>Acciones</th>
                                     </tr>
-                                <?php endwhile; ?>
-                
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
                     
+                                    <?php while ($cv = $resultado->fetch_assoc()): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($cv['nombre']) ?> <?= htmlspecialchars($cv['apellidos']) ?></td>
+                                            <td><?= htmlspecialchars($cv['email']) ?></td>
+                                            <td><?= $cv['fecha_creacion'] ?></td>
+                                            <td>
+                                                <a href="visualizar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-primary">Ver</a>
+                                                <a href="editar_cv.php?id=<?= $cv['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                                            <a href="eliminar_cv.php?id=<?= $cv['id'] ?>"class="btn btn-sm btn-danger"onclick="return confirm('¿Seguro que quieres eliminar esta versión del CV?');">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    <?php endwhile; ?>
+                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
                 </div>
-            </div>
 
-    <?php else: ?>
-        <p>No hay CVs guardados.</p>
+        <?php else: ?>
+            <p>No hay CVs guardados.</p>
 
-    <?php endif; ?>
+        <?php endif; ?>
 
-</div>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="javascript/script.js"></script> -->
 </body>
 </html>

@@ -42,3 +42,5 @@ $connect->close();
 //Vuelve al listado.
 header("Location: listado.php");
 exit;
+
+

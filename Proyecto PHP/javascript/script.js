@@ -2,6 +2,7 @@
 let barraProgreso = document.getElementById("progressBar");
 let numeroPorcentaje = document.getElementById("numPorcentaje");
 let form = document.querySelector("form");
+let botonEliminar = document.getElementById("killbutton");
 
 //Raid que contiene todos los inputs.
 let raidInputs = form.querySelectorAll(
@@ -49,6 +50,8 @@ function actualizarProgeso(){
         barraProgreso.classList.add("bg-success");
     }
 }
+
+
 /**
  * Listener o eventos. Me gusta llamarlos caster.
  */
@@ -60,3 +63,32 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const botonesEliminar = document.querySelectorAll(".btn-eliminar");
+    if (botonesEliminar.length === 0) return;
+
+    botonesEliminar.forEach(btn => {
+        btn.addEventListener("click", e => {
+            e.preventDefault();
+
+            Swal.fire({
+                title: "¿Eliminar CV?",
+                text: "Esta acción no se puede deshacer",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar"
+            }).then(result => {
+                if (result.isConfirmed) {
+                    window.location.href = btn.href;
+                }
+            });
+        });
+    });
+
+});
+
+
