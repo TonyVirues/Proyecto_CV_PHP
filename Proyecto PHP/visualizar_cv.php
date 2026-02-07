@@ -34,7 +34,7 @@ $cv = $resultado->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CV de <?= htmlspecialchars($cv['nombre']) ?></title>
@@ -57,11 +57,11 @@ $cv = $resultado->fetch_assoc();
                             <aside class="col-md-4">
                                 <div class=" m-2 p-5 rounded-5 shadow-sm" style="background-color:#d8dcd8; ">
 
-                                    <!--FOTO-->
+                                    <!--Foto.-->
                                     <div class="text-center mb-4">
                                         <?php if (!empty($cv['foto'])): ?>
                                             <img src="uploads/<?= htmlspecialchars($cv['foto']) ?>" 
-                                            class="rounded-circle shadow-sm mb-3" width="160"height="160"alt="Foto de perfil">
+                                            class="rounded-circle shadow-sm mb-3" width="180" height="170"alt="Foto de perfil">
                                         <?php endif; ?>
                                     </div>
                                     
@@ -75,7 +75,7 @@ $cv = $resultado->fetch_assoc();
                                         </p>
                                     </div>
 
-                                    <!--CONTACTO-->
+                                    <!--Contacto.-->
                                     <div class="mb-4">
                                         <h5 class="text-uppercase fw-bold mb-2">
                                             Contacto
@@ -106,12 +106,15 @@ $cv = $resultado->fetch_assoc();
                             <!--Columna derecha contenido principal.-->
                             <section class="col-md-8 p-4 bg-light rounded-end ">
 
-                                <!-- CABECERA: NOMBRE + PUESTO -->
+                                <!--Cabecera-->
                                 <div class="mb-4">
+
+                                    <!--Primer nombre.-->
                                     <h2 class=" mb-1 text-info-emphasis" >
                                         <?= htmlspecialchars($cv['nombre'])?>
                                     </h2>
-                                    <h3 class="fw-semibold mb-5">
+                                    <!--Segundo nombre.-->
+                                    <h3 class="fw-semibold mb-5 text-info-emphasis">
                                         <?= htmlspecialchars($cv['apellidos'])?>
                                     </h3>
                                                                     
@@ -171,23 +174,36 @@ $cv = $resultado->fetch_assoc();
                                 </div>
 
                             </section>
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
 
     </main>
 
+        <!--Botones.-->
+        <div class="no-print text-center mb-4">
+            <button onclick="window.print()" class="btn btn-primary">
+                🖨️ Imprimir CV
+            </button>
+
+            <!-- Botón Guardar PDF --> <!--CAMBIAR ESTO POR DIOS.-->
+            <button onclick="guardarPDF()" class="btn btn-outline-primary disable">
+                📄 Guardar como PDF
+            </button>
+                <a href="listado.php" class="btn btn-secondary">
+                    Volver
+                </a>
+        </div>
 
 
-
-
+                                 
     <script>
+    /**
+     * Hay que meter script embebido, debido que el fichero script tiene algunos problemas al cargar desde este lado
+     * Lo mismo ocurre con los otros ficheros.
+     * */ 
     function guardarPDF() {
         alert(
             "Para guardar el currículum en PDF:\n\n" +
