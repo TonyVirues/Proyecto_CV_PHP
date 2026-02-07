@@ -52,7 +52,7 @@ $resultado = $connect->query($obtenerTodosCv);
 
                                 <ul class="nav nav-pills flex-column gap-1">
                                     <li class="nav-item">
-                                        <a class="nav-link " href="index.html">Home</a>
+                                        <a class="nav-link " href="index.html">Creación Curriculum</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link active" href="listado.php">Mis curriculums</a>
