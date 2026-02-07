@@ -27,37 +27,3 @@ section h4 {
 .shadow-sm {
     border-radius: 8px;
 }
-
-/* Plantilla para visualizar_cv */
-        /* .cv-container {
-            background: white;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        .cv-header {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            border-bottom: 2px solid #0d6efd;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .cv-header img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-            .no-print {
-                display: none;
-            }
-        } */
