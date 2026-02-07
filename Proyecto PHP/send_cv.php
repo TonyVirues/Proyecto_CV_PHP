@@ -3,11 +3,6 @@
 //Importamos el archivo php que tiene la conexión.
 include("conexion.php");
 
-// echo "<pre>"; //borrar en el futuro
-// print_r($_POST);
-// print_r($_FILES);
-// echo "</pre>";
-
 //Proceso que recoge los datos de los inputs.
 $nombre = trim($_POST['nombre']);
 $apellidos= trim($_POST['apellidos']);
@@ -25,7 +20,7 @@ $version_cv = $_POST["version_cv"] ?? time();
 
 /**
  * Actualizar foto/ se ha actualizado este codigo para que se mantenga la foto original
- *  si no se sube una nueva
+ *  si no se sube una nueva.
  */
 $nombreFoto = $_POST['foto_actual'] ?? null;
 

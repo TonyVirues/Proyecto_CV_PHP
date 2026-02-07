@@ -1,6 +1,6 @@
 <?php
 include("conexion.php");
-//revisar todo
+
 if (!isset($_GET["id"])) {
     die("ID no especificado");
 }

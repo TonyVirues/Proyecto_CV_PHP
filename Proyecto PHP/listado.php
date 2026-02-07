@@ -67,7 +67,7 @@ $resultado = $connect->query($obtenerTodosCv);
                     <!--Tabla de curriculums.-->
                     <div class="col-9">
                         <div class="py-4 me-5">
-                            <table class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered rounded-2">
                                 <thead class="table-primary">
                                     <tr>
                                         <th>Nombre</th>
@@ -105,6 +105,5 @@ $resultado = $connect->query($obtenerTodosCv);
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="javascript/script.js"></script> -->
 </body>
 </html>
