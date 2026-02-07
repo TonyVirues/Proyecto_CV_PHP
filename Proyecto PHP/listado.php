@@ -11,7 +11,7 @@ $obtenerTodosCv="SELECT id, nombre, apellidos, email, fecha_creacion
 //Variable que ejecuta la consulta y guarda la info extraida.
 $resultado = $connect->query($obtenerTodosCv);
 ?>
-
+<!--Si no hay cv se borra hasta el menu, afuf.-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
