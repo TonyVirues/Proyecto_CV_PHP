@@ -23,7 +23,12 @@ $resultado = $connect->query($obtenerTodosCv);
 <body class="bg-dark">
     <header>
         <div class="navbar navbar-dark bg-primary mb-4">
-            <div class="container"> <span class="navbar-brand mb-0 h1"><i class="bi bi-file-earmark-person"></i> CV Generator</span> 
+            <div class="container">              
+                <button class="btn">
+                    <a class="nav-link navbar-brand mb-0 h1" href="index.html">
+                        <i class="bi bi-file-earmark-person"></i>
+                            CV Generator</a>
+                </button>
             </div>
 
             <div class="me-4">
