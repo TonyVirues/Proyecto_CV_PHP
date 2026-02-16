@@ -36,48 +36,54 @@ $cv = $resultado->fetch_assoc();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>CV de <?= htmlspecialchars($cv['nombre']) ?></title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
+
 <body class="bg-dark rounded-1">
+
+    <!--Cabecera.-->
     <header>
         <div class="navbar navbar-dark bg-primary mb-4">
             <div class="container">              
-                <button class="btn">
-                    <a class="nav-link navbar-brand mb-0 h1" href="index.html">
-                        <i class="bi bi-file-earmark-person"></i>
-                            CV Generator</a>
-                </button>
-            </div>
-
-            <div class="me-4">
-                <button type="button" class="btn btn-outline-light ">Inicia Sesión</button>
-                <button type="button" class="btn bg-light ">Registrate</button>
+                <button class="btn"><a class="nav-link navbar-brand mb-0 h1" href="index.html"><i class="bi bi-file-earmark-person"></i>Creador Curriculums</a></button>
             </div>
         </div>
     </header>
-
+    
+    <!--Contenido principal.-->
+    <!--El main obtiene el contenido usando container.-->
     <main class="container my-5">
-        <!--Multiples divs, para respetar la herencia de boostrap, permitiendo el orden de grid con columns y row-->
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-xl-9">
-                <div class="card shadow-sm">
 
+        <!--Primer row para dividir la pagina en filas y
+         mantener el cv en el centro de la página.-->
+        <div class="row justify-content-center">
+
+            <!--Con este div , ajustamos las columnas que formaran la pagina.-->
+            <div class="col-12 col-lg-11 col-xl-9">
+
+                <!--div para darle sombra a la caja-->
+                <div class="card shadow-sm">
                     <div class="card-body p-0">
 
+                        <!--Segundo row para dividir el cv en dos partes-->
                         <div class="row g-0 ">
+
                             <!--Columna izquierda fotos y contacto.-->
 
                             <aside class="col-md-4">
+
                                 <div class=" m-2 p-5 rounded-5 shadow-sm" style="background-color:#d8dcd8; ">
 
                                     <!--Foto.-->
                                     <div class="text-center mb-4">
                                         <?php if (!empty($cv['foto'])): ?>
                                             <img src="uploads/<?= htmlspecialchars($cv['foto']) ?>" 
-                                            class="rounded-circle shadow-sm mb-3" width="180" height="170"alt="Foto de perfil">
+                                            class=" img-fluid rounded-circle shadow-sm mb-3" alt="Foto de perfil" >
                                         <?php endif; ?>
                                     </div>
                                     
@@ -86,7 +92,7 @@ $cv = $resultado->fetch_assoc();
                                         <h5 class="text-uppercase fw-bold mb-2">
                                             Sobre mí
                                         </h5>
-                                        <p class="small pb-4 border-bottom border-2 border-black">
+                                        <p class=" pb-4 border-bottom border-2 border-black">
                                             Mi parte favorita de la preciosa vida, es trabajar.
                                         </p>
                                     </div>
@@ -97,17 +103,17 @@ $cv = $resultado->fetch_assoc();
                                             Contacto
                                         </h5>
     
-                                        <p class="small mb-1">
+                                        <p class=" mb-1">
                                             <strong>Email:</strong><br>
                                             <?= htmlspecialchars($cv['email']) ?>
                                         </p>
     
-                                        <p class="small mb-1">
+                                        <p class=" mb-1">
                                             <strong>Teléfono:</strong><br>
                                             <?= htmlspecialchars($cv['telefono']) ?>
                                         </p>
     
-                                        <p class="small mb-0">
+                                        <p class=" mb-0">
                                             <strong>Dirección:</strong><br>
                                             <?= htmlspecialchars($cv['domicilio']) ?>
                                         </p>
@@ -178,11 +184,11 @@ $cv = $resultado->fetch_assoc();
 
                                     <!--idiomas.-->
                                     <div class="col-md-6">
-                                        <h4 class="text-primary  ps-5 mb-3">
+                                        <h4 class="text-primary  ps-2 pb-2 mb-3">
                                             Idiomas
                                         </h4>
 
-                                        <p class="mb-0 ps-5">
+                                        <p class="mb-0 ps-2">
                                             <?= nl2br(htmlspecialchars($cv['idiomas'])) ?>
                                         </p>
                                     </div>

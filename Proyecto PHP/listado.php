@@ -30,11 +30,6 @@ $resultado = $connect->query($obtenerTodosCv);
                             CV Generator</a>
                 </button>
             </div>
-
-            <div class="me-4">
-                <button type="button" class="btn btn-outline-light ">Inicia Sesión</button>
-                <button type="button" class="btn bg-light ">Registrate</button>
-            </div>
         </div>
     </header>
 
