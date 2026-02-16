@@ -14,7 +14,7 @@
 
     <!--Cabecera-->
     <header>
-        <div class="navbar navbar-dark bg-primary mb-4">
+        <div class="navbar navbar-dark bg-primary mb-4 ml-2">
             <div class="container">              
                 <button class="btn">
                     <a class="nav-link navbar-brand mb-0 h1" href="index.html">
@@ -97,11 +97,11 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="validationServer01" class="form-label">Nombre <span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre" class="form-control" placeholder="Antonio José" required>
+                                        <input type="text" name="nombre" class="form-control" placeholder="Antonio José" required maxlength="15">
                                     </div>
                                     <div class="col-md-6"> 
                                         <label for="validationServer01" class="form-label">Apellidos <span class="text-danger">*</span></label> 
-                                        <input type="text" name="apellidos" class="form-control"  placeholder="Marún Virués" required>
+                                        <input type="text" name="apellidos" class="form-control"  placeholder="Marún Virués" required maxlength="45">
                                     </div>
 
                                     <div class="col-md-6">
@@ -111,7 +111,7 @@
 
                                     <div class="col-md-6">
                                         <label class="form-label">Teléfono <span class="text-danger">*</span></label>
-                                        <input type="tel" name="telefono" class="form-control" placeholder="+36000001002" required>
+                                        <input type="tel" name="telefono" class="form-control" placeholder="+36 000001002" pattern ="[0-9{9}]" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label">Dirección Domicilio <span class="text-danger">*</span></label>
@@ -133,7 +133,7 @@
                                 <div class="row g-3">
                                     <label class="form-label">Resumen de Experiencia <span class="text-danger">*</span></label>
                                     <textarea name="experiencia" class="form-control" rows="4"
-                                        placeholder="Describe tus puestos anteriores..."></textarea>
+                                        placeholder="Describe tus puestos anteriores..." required></textarea>
                                 </div>
                             </section>
 
@@ -145,7 +145,7 @@
                                 <div class="row g-3">
                                     <label class="form-label">Resumen Académico <span class="text-danger">*</span></label>
                                     <textarea name="formacion" class="form-control" rows="4"
-                                        placeholder="Describe tus estudios anteriores..."></textarea>
+                                        placeholder="Describe tus estudios anteriores..." required></textarea>
                                 </div>
                             </section>
 
@@ -157,13 +157,13 @@
                                     <div class="col-md-6">
                                         <h4 class="border-bottom pb-2 mb-3 text-primary">Habilidades <span class="text-danger">*</span></h4>
                                         <textarea name="habilidades" class="form-control" rows="3"
-                                            placeholder="PHP, MySQL, Trabajo en equipo, liderazgo, Git"></textarea>
+                                            placeholder="PHP, MySQL, Trabajo en equipo, liderazgo, Git" required></textarea>
                                     </div>
 
                                     <div class="col-md-6">
                                         <h4 class="border-bottom pb-2 mb-3 text-primary">Idiomas <span class="text-danger">*</span></h4>
                                         <textarea name="idiomas" class="form-control" rows="3"
-                                            placeholder="Inglés (B2), Alemán (A1)..."></textarea>
+                                            placeholder="Inglés (B2), Alemán (A1)..." required></textarea>
                                     </div>
                                 </div>
 
