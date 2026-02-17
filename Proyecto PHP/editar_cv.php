@@ -76,13 +76,13 @@ $connect->close();
                             <div class="col-md-6">
                                 <label class="form-label">Nombre</label>
                                 <input type="text" name="nombre" class="form-control"
-                                    value="<?= htmlspecialchars($cv['nombre']) ?>" required>
+                                    value="<?= htmlspecialchars($cv['nombre']) ?>" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Apellidos</label>
                                 <input type="text" name="apellidos" class="form-control"
-                                    value="<?= htmlspecialchars($cv['apellidos']) ?>" required>
+                                    value="<?= htmlspecialchars($cv['apellidos']) ?>" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" required>
                             </div>
 
                             <div class="col-md-6">
@@ -98,7 +98,7 @@ $connect->close();
                             </div>
 
                             <div class="col-md-12">
-                                <label class="form-label">Domicilio</label>
+                                <label class="form-label">Dirección Domicilio</label>
                                 <input type="text" name="domicilio" class="form-control"
                                     value="<?= htmlspecialchars($cv['domicilio']) ?>">
                             </div>
