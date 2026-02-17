@@ -47,11 +47,14 @@ $cv = $resultado->fetch_assoc();
 
 <body class="bg-dark rounded-1">
 
-    <!--Cabecera.-->
     <header>
+        <!--Cabecera-->
         <div class="navbar navbar-dark bg-primary mb-4">
-            <div class="container">              
-                <button class="btn"><a class="nav-link navbar-brand mb-0 h1" href="index.html"><i class="bi bi-file-earmark-person"></i>Creador Curriculums</a></button>
+            <div class="container-fluid">
+                <button class="btn">
+                    <a class="nav-link navbar-brand mb-0 h1" href="index.html">
+                        <i class="bi bi-file-earmark-person"></i>Creador Curriculums</a>
+                </button>
             </div>
         </div>
     </header>

@@ -41,20 +41,14 @@ $connect->close();
 
 <body class="bg-dark">
 
-    <!--Cabecera.   -->
     <header>
+        <!--Cabecera-->
         <div class="navbar navbar-dark bg-primary mb-4">
-            <div class="container">              
+            <div class="container-fluid">
                 <button class="btn">
                     <a class="nav-link navbar-brand mb-0 h1" href="index.html">
-                        <i class="bi bi-file-earmark-person"></i>
-                            CV Generator</a>
+                        <i class="bi bi-file-earmark-person"></i>Creador Curriculums</a>
                 </button>
-            </div>
-
-            <div class="me-4">
-                <button type="button" class="btn btn-outline-light ">Inicia Sesión</button>
-                <button type="button" class="btn bg-light ">Registrate</button>
             </div>
         </div>
     </header>
@@ -99,8 +93,8 @@ $connect->close();
 
                             <div class="col-md-6">
                                 <label class="form-label">Teléfono</label>
-                                <input type="text" name="telefono" class="form-control"
-                                    value="<?= htmlspecialchars($cv['telefono']) ?>">
+                                <input type="tel" name="telefono" class="form-control"
+                                    value="<?= htmlspecialchars($cv['telefono']) ?>" required>
                             </div>
 
                             <div class="col-md-12">
@@ -111,27 +105,27 @@ $connect->close();
 
                             <div class="col-md-12">
                                 <label class="form-label">Experiencia</label>
-                                <textarea name="experiencia" class="form-control" rows="3"><?= htmlspecialchars($cv['experiencia']) ?></textarea>
+                                <textarea name="experiencia" class="form-control" rows="3" required><?= htmlspecialchars($cv['experiencia']) ?></textarea>
                             </div>
 
                             <div class="col-md-12">
                                 <label class="form-label">Formación</label>
-                                <textarea name="formacion" class="form-control" rows="3"><?= htmlspecialchars($cv['formacion']) ?></textarea>
+                                <textarea name="formacion" class="form-control" rows="3" required><?= htmlspecialchars($cv['formacion']) ?></textarea>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Habilidades</label>
-                                <textarea name="habilidades" class="form-control"><?= htmlspecialchars($cv['habilidades']) ?></textarea>
+                                <textarea name="habilidades" class="form-control" required><?= htmlspecialchars($cv['habilidades']) ?></textarea>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="form-label">Idiomas</label>
-                                <textarea name="idiomas" class="form-control"><?= htmlspecialchars($cv['idiomas']) ?></textarea>
+                                <textarea name="idiomas" class="form-control" required><?= htmlspecialchars($cv['idiomas']) ?></textarea>
                             </div>
 
                             <div class="col-md-12">
                                 <label class="form-label">Nueva foto (opcional)</label>
-                                <input type="file" name="foto" class="form-control">
+                                <input type="file" name="foto" class="form-control" required>
                                 <input type="hidden" name="foto_actual" value="<?= htmlspecialchars($cv['foto']) ?>">
                             </div>
                         </div>
