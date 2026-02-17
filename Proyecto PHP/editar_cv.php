@@ -94,7 +94,7 @@ $connect->close();
                             <div class="col-md-6">
                                 <label class="form-label">Teléfono</label>
                                 <input type="tel" name="telefono" class="form-control"
-                                    value="<?= htmlspecialchars($cv['telefono']) ?>" required>
+                                    value="<?= htmlspecialchars($cv['telefono']) ?>"pattern="[0-9]{9}" required>
                             </div>
 
                             <div class="col-md-12">
@@ -125,7 +125,7 @@ $connect->close();
 
                             <div class="col-md-12">
                                 <label class="form-label">Nueva foto (opcional)</label>
-                                <input type="file" name="foto" class="form-control" required>
+                                <input type="file" name="foto" class="form-control">
                                 <input type="hidden" name="foto_actual" value="<?= htmlspecialchars($cv['foto']) ?>">
                             </div>
                         </div>
